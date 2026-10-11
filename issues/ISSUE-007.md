@@ -1,6 +1,6 @@
 # ISSUE-007 — Icon generator: identical pixel sizes render and encode repeatedly
 
-State: Implementing
+State: PR-Ready
 Authorized-Work: Pull-Request-Implementation
 Publication-Target: New-pull-request
 External-Reference: Not published.
@@ -52,9 +52,9 @@ Preserve every output filename, write order, drawing function, and iconutil invo
 
 ## Verification
 
-- Run upstream and patched generators in separate disposable native macOS source trees.
-- Compare README PNG, all iconset PNGs, and the resulting AppIcon.icns byte-for-byte.
-- Measure the full generator separately from rendering-only timing.
+- [O] Both actual generators completed successfully in separate disposable source trees on macOS 15.7.
+- [O] README PNG, all ten iconset PNGs, and AppIcon.icns were byte-identical.
+- [O] Full invocations took 2.00 and 0.50 seconds; unequal startup/cache state prevents a speedup claim.
 
 ## Performance-Evidence
 
@@ -64,21 +64,68 @@ File writes, Swift startup, and iconutil were not part of that comparison.
 
 ## Publication-Blockers
 
-Native full-output comparison, exact PR draft, contribution commit, and fork push are pending.
+None.
 
 ## Next-Action
 
-Summary: Reuse repeated icon PNGs
-Action: Implement per-invocation PNG reuse and compare complete native generator outputs.
-Done-When: All output bytes match upstream and the source-only contribution is ready for submission.
+Summary: Submit icon reuse PR
+Action: Submit the verified source-only contribution to nikgrbn/finder-menu main.
+Done-When: The external PR URL is recorded and the ledger is validated and pushed.
 
 ## Pull-Request-Implementation
 
 Branch: perf/issue-007-reuse-icon-png
 Base: `upstream/main@e172ddfd0e9ddfc2aef78d7c35eba4590b7e50d3`
 Scope: Reuse PNG Data for repeated pixel sizes during one icon-generator invocation.
-Commit: Pending.
-Push: Pending.
+Commit: 8f3cb356a626abde75de6e3b8b83847c158a909a
+Push: origin/perf/issue-007-reuse-icon-png
 Checks:
 
-- Pending native macOS verification.
+- `swift scripts/make-icon.swift` in separate disposable source trees → both actual generators succeeded.
+- `cmp` for README PNG and AppIcon.icns → identical bytes.
+- `diff -rq` for baseline and patched iconsets → all ten PNGs identical.
+- Foundation used the native per-user temp directory despite TMPDIR; the iconset was snapshotted before rerunning upstream.
+- `git diff --name-only upstream/main...HEAD` → only `scripts/make-icon.swift`.
+
+## Publication-Draft
+
+Target: https://github.com/nikgrbn/finder-menu, base=main, head=MikeeI:perf/issue-007-reuse-icon-png
+Title: Reuse PNG data for repeated icon sizes
+
+Body:
+
+```markdown
+## Summary
+
+The README image and iconset request eleven PNGs but use only seven distinct pixel sizes.
+Reuse encoded PNG data by pixel size within the current generator invocation.
+Keep drawing code, output filenames, write order, and the `iconutil` invocation unchanged.
+The cache retains encoded bytes rather than bitmap representations and does not persist across runs.
+
+## Verification
+
+- Ran the upstream and patched generators on macOS 15.7 with Swift 6.1.2.
+- Compared the README PNG, all ten iconset PNGs, and the final AppIcon.icns byte-for-byte.
+- All output bytes matched.
+- The contribution changes only the generator source, not generated assets.
+
+## Performance
+
+An earlier rendering-and-encoding comparison used twelve samples per variant.
+Its medians were 55.56 ms without reuse and 37.03 ms with reuse.
+That component comparison excluded file writes, Swift startup, and `iconutil`.
+This is a small developer-tool optimization and does not change Finder runtime performance.
+
+### Disclosure
+
+Investigated thoroughly with GPT-6.1 Sol (extra high reasoning effort), using [Oh My Pi](https://github.com/can1357/oh-my-pi) as the agent framework.
+I reviewed this contribution with GPT-6.1 Sol at xhigh reasoning effort.
+
+This report is not generic or unreviewed AI-generated output.
+Its claims were checked against the cited evidence, and it includes the relevant detail intended to help maintainers resolve the issue.
+
+If reports like this are not useful to the project, please let me know and I will refrain from submitting similar ones.
+My intent is to help without wasting maintainer time or energy or discouraging their work.
+
+Thank you for your work.
+```

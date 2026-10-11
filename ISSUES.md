@@ -18,8 +18,8 @@ Next finding ID: ISSUE-008
 | [ISSUE-003](issues/ISSUE-003.md) | Parent navigation: item targets are mistaken for the browsed directory | PR-Ready | Pull-Request-Implementation | New-pull-request | Medium | Submit scoped upstream PR | Not published. |
 | [ISSUE-004](issues/ISSUE-004.md) | Parent navigation: case-insensitive comparison matches distinct directories | PR-Ready | Pull-Request-Implementation | New-pull-request | Medium | Submit scoped upstream PR | Not published. |
 | [ISSUE-005](issues/ISSUE-005.md) | Terminal reset: operational deletion errors are reported as success | PR-Ready | Pull-Request-Implementation | New-pull-request | Low | Submit scoped upstream PR | Not published. |
-| [ISSUE-006](issues/ISSUE-006.md) | Build: independent Swift compilers run sequentially | Implementing | Pull-Request-Implementation | New-pull-request | Medium | Implement parallel compiler scheduling | Not published. |
-| [ISSUE-007](issues/ISSUE-007.md) | Icon generator: identical pixel sizes render and encode repeatedly | Implementing | Pull-Request-Implementation | New-pull-request | Low | Reuse repeated icon PNGs | Not published. |
+| [ISSUE-006](issues/ISSUE-006.md) | Build: independent Swift compilers run sequentially | PR-Ready | Pull-Request-Implementation | New-pull-request | Medium | Submit parallel build PR | Not published. |
+| [ISSUE-007](issues/ISSUE-007.md) | Icon generator: identical pixel sizes render and encode repeatedly | PR-Ready | Pull-Request-Implementation | New-pull-request | Low | Submit icon reuse PR | Not published. |
 
 ## Archived-Findings
 
