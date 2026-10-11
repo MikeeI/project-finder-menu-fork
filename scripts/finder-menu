@@ -11,16 +11,41 @@ DEST="${DEST:-$HOME/Applications}"
 INSTALLED="$DEST/Finder Menu.app"
 LSREGISTER=/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister
 
-enable() {
+enable() (
   local app="${1:-$(cd "$(dirname "$(realpath "$0")")/.." && pwd)/Finder Menu.app}"
   if [ ! -d "$app" ]; then
     echo "Can't find $app" >&2
     exit 1
   fi
-  pkill -f FinderMenuExtension.appex 2>/dev/null || true
   mkdir -p "$DEST"
-  rm -rf "$INSTALLED"
-  cp -R "$app" "$DEST/"
+  # Copy before stopping the extension or moving its bundle, including when the source is the installed app.
+  stage=$(mktemp -d "$DEST/.finder-menu.XXXXXX")
+  backup="$stage/previous"
+  exchanged=0
+  # These variables belong to the subshell: its EXIT trap also runs after the function returns.
+  cleanup() {
+    status=$?
+    trap - EXIT
+    if [ "$exchanged" -eq 0 ] && { [ -e "$backup" ] || [ -L "$backup" ]; }; then
+      if [ -e "$INSTALLED" ] || [ -L "$INSTALLED" ] || ! mv "$backup" "$INSTALLED"; then
+        echo "Couldn't restore the previous app. It is preserved at: $backup" >&2
+        exit 1
+      fi
+    fi
+    if ! rm -rf "$stage"; then
+      echo "Couldn't remove the staging directory: $stage" >&2
+      exit 1
+    fi
+    exit "$status"
+  }
+  trap cleanup EXIT
+  cp -RH "$app" "$stage/Finder Menu.app"
+  pkill -f FinderMenuExtension.appex 2>/dev/null || true
+  if [ -e "$INSTALLED" ] || [ -L "$INSTALLED" ]; then
+    mv "$INSTALLED" "$backup"
+  fi
+  mv "$stage/Finder Menu.app" "$INSTALLED"
+  exchanged=1
   "$LSREGISTER" -f "$INSTALLED"
   # Registration can silently lose a race with a just-removed copy, so confirm it and retry.
   for _ in 1 2 3 4 5; do
@@ -36,7 +61,7 @@ enable() {
   echo "Installed, but macOS didn't enable the Finder extension. Turn on \"Finder Menu\" in" >&2
   echo "System Settings → General → Login Items & Extensions, or run: finder-menu enable" >&2
   exit 1
-}
+)
 
 disable() {
   pluginkit -e ignore -i "$EXT_ID" 2>/dev/null || true
