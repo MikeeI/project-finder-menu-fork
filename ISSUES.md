@@ -13,11 +13,11 @@ Next finding ID: ISSUE-008
 
 | ID | Finding | State | Authorized-Work | Publication-Target | Contribution-Priority | Next-Action | External-Reference |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [ISSUE-001](issues/ISSUE-001.md) | New File: concurrent creation can overwrite existing contents | Implementing | Pull-Request-Implementation | New-pull-request | High | Implement exclusive file creation | Not published. |
-| [ISSUE-002](issues/ISSUE-002.md) | Installation: source aliases and copy failures remove the working app | Implementing | Pull-Request-Implementation | New-pull-request | High | Implement staged app replacement | Not published. |
-| [ISSUE-003](issues/ISSUE-003.md) | Parent navigation: item targets are mistaken for the browsed directory | Implementing | Pull-Request-Implementation | New-pull-request | Medium | Implement navigation context handling | Not published. |
-| [ISSUE-004](issues/ISSUE-004.md) | Parent navigation: case-insensitive comparison matches distinct directories | Implementing | Pull-Request-Implementation | New-pull-request | Medium | Implement case-sensitive path comparison | Not published. |
-| [ISSUE-005](issues/ISSUE-005.md) | Terminal reset: operational deletion errors are reported as success | Implementing | Pull-Request-Implementation | New-pull-request | Low | Implement truthful terminal reset | Not published. |
+| [ISSUE-001](issues/ISSUE-001.md) | New File: concurrent creation can overwrite existing contents | PR-Ready | Pull-Request-Implementation | New-pull-request | High | Submit scoped upstream PR | Not published. |
+| [ISSUE-002](issues/ISSUE-002.md) | Installation: source aliases and copy failures remove the working app | PR-Ready | Pull-Request-Implementation | New-pull-request | High | Submit scoped upstream PR | Not published. |
+| [ISSUE-003](issues/ISSUE-003.md) | Parent navigation: item targets are mistaken for the browsed directory | PR-Ready | Pull-Request-Implementation | New-pull-request | Medium | Submit scoped upstream PR | Not published. |
+| [ISSUE-004](issues/ISSUE-004.md) | Parent navigation: case-insensitive comparison matches distinct directories | PR-Ready | Pull-Request-Implementation | New-pull-request | Medium | Submit scoped upstream PR | Not published. |
+| [ISSUE-005](issues/ISSUE-005.md) | Terminal reset: operational deletion errors are reported as success | PR-Ready | Pull-Request-Implementation | New-pull-request | Low | Submit scoped upstream PR | Not published. |
 | [ISSUE-006](issues/ISSUE-006.md) | Build: independent Swift compilers run sequentially | Implementing | Pull-Request-Implementation | New-pull-request | Medium | Implement parallel compiler scheduling | Not published. |
 | [ISSUE-007](issues/ISSUE-007.md) | Icon generator: identical pixel sizes render and encode repeatedly | Implementing | Pull-Request-Implementation | New-pull-request | Low | Reuse repeated icon PNGs | Not published. |
 
