@@ -20,8 +20,9 @@ class FinderMenuSync: FIFinderSync {
             case "open-with": entry.submenu = Self.openWithMenu()
             case "copy-path": entry.action = #selector(copyPath(_:))
             case "parent-folder":
-                guard let dir = currentFolder, dir.path != "/" else { continue }
+                guard let dir = navigationFolder(for: menuKind), dir.path != "/" else { continue }
                 entry.action = #selector(goUp(_:))
+                entry.tag = Int(menuKind.rawValue) // Finder copies the menu, so retain its context in the tag.
             default: continue
             }
             entry.image = Self.symbol(item.symbol)
@@ -80,8 +81,16 @@ class FinderMenuSync: FIFinderSync {
     }
 
     @objc func goUp(_ sender: AnyObject?) {
-        guard let dir = currentFolder else { return }
+        guard let item = sender as? NSMenuItem, item.tag >= 0,
+              let menuKind = FIMenuKind(rawValue: UInt(item.tag)),
+              let dir = navigationFolder(for: menuKind) else { return }
         callHelper("up", dir.path)
+    }
+
+    private func navigationFolder(for menuKind: FIMenuKind) -> URL? {
+        guard let target = currentFolder else { return nil }
+        // An item target is inside the browsed folder; a background target is the folder itself.
+        return menuKind == .contextualMenuForItems ? target.deletingLastPathComponent() : target
     }
 
     private var currentFolder: URL? { FIFinderSyncController.default().targetedURL() }
