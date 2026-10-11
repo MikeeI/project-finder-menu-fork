@@ -1,9 +1,9 @@
 # ISSUE-006 — Build: independent Swift compilers run sequentially
 
-State: PR-Ready
+State: Submitted
 Authorized-Work: Pull-Request-Implementation
 Publication-Target: New-pull-request
-External-Reference: Not published.
+External-Reference: https://github.com/nikgrbn/finder-menu/pull/8
 Contribution-Priority: Medium
 Root-Cause-Confidence: High
 Finding-Category: Performance
@@ -70,9 +70,9 @@ None.
 
 ## Next-Action
 
-Summary: Submit parallel build PR
-Action: Submit the verified source-only contribution to nikgrbn/finder-menu main.
-Done-When: The external PR URL is recorded and the ledger is validated and pushed.
+Summary: Monitor upstream PR feedback
+Action: Review maintainer feedback or the PR's eventual resolution and record new evidence.
+Done-When: Feedback is addressed or an externally verified resolution is recorded.
 
 ## Pull-Request-Implementation
 
