@@ -1,9 +1,9 @@
 # ISSUE-005 — Terminal reset: operational deletion errors are reported as success
 
-State: PR-Ready
+State: Submitted
 Authorized-Work: Pull-Request-Implementation
 Publication-Target: New-pull-request
-External-Reference: Not published.
+External-Reference: https://github.com/nikgrbn/finder-menu/pull/7
 Contribution-Priority: Low
 Root-Cause-Confidence: High
 Finding-Category: Reliability
@@ -64,9 +64,9 @@ None.
 
 ## Next-Action
 
-Summary: Submit scoped upstream PR
-Action: Submit the exact recorded draft to `nikgrbn/finder-menu` under the user's direct publication authorization.
-Done-When: The upstream PR URL is recorded in this file and the index.
+Summary: Monitor upstream PR feedback
+Action: Review maintainer feedback on https://github.com/nikgrbn/finder-menu/pull/7.
+Done-When: Feedback is addressed or an evidence-backed merge or closure disposition is recorded.
 
 ## Pull-Request-Implementation
 

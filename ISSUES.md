@@ -13,13 +13,13 @@ Next finding ID: ISSUE-008
 
 | ID | Finding | State | Authorized-Work | Publication-Target | Contribution-Priority | Next-Action | External-Reference |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [ISSUE-001](issues/ISSUE-001.md) | New File: concurrent creation can overwrite existing contents | PR-Ready | Pull-Request-Implementation | New-pull-request | High | Submit scoped upstream PR | Not published. |
-| [ISSUE-002](issues/ISSUE-002.md) | Installation: source aliases and copy failures remove the working app | PR-Ready | Pull-Request-Implementation | New-pull-request | High | Submit scoped upstream PR | Not published. |
-| [ISSUE-003](issues/ISSUE-003.md) | Parent navigation: item targets are mistaken for the browsed directory | PR-Ready | Pull-Request-Implementation | New-pull-request | Medium | Submit scoped upstream PR | Not published. |
-| [ISSUE-004](issues/ISSUE-004.md) | Parent navigation: case-insensitive comparison matches distinct directories | PR-Ready | Pull-Request-Implementation | New-pull-request | Medium | Submit scoped upstream PR | Not published. |
-| [ISSUE-005](issues/ISSUE-005.md) | Terminal reset: operational deletion errors are reported as success | PR-Ready | Pull-Request-Implementation | New-pull-request | Low | Submit scoped upstream PR | Not published. |
-| [ISSUE-006](issues/ISSUE-006.md) | Build: independent Swift compilers run sequentially | PR-Ready | Pull-Request-Implementation | New-pull-request | Medium | Submit parallel build PR | Not published. |
-| [ISSUE-007](issues/ISSUE-007.md) | Icon generator: identical pixel sizes render and encode repeatedly | PR-Ready | Pull-Request-Implementation | New-pull-request | Low | Submit icon reuse PR | Not published. |
+| [ISSUE-001](issues/ISSUE-001.md) | New File: concurrent creation can overwrite existing contents | Submitted | Pull-Request-Implementation | New-pull-request | High | Monitor upstream PR feedback | https://github.com/nikgrbn/finder-menu/pull/3 |
+| [ISSUE-002](issues/ISSUE-002.md) | Installation: source aliases and copy failures remove the working app | Submitted | Pull-Request-Implementation | New-pull-request | High | Monitor upstream PR feedback | https://github.com/nikgrbn/finder-menu/pull/4 |
+| [ISSUE-003](issues/ISSUE-003.md) | Parent navigation: item targets are mistaken for the browsed directory | Submitted | Pull-Request-Implementation | New-pull-request | Medium | Monitor upstream PR feedback | https://github.com/nikgrbn/finder-menu/pull/5 |
+| [ISSUE-004](issues/ISSUE-004.md) | Parent navigation: case-insensitive comparison matches distinct directories | Submitted | Pull-Request-Implementation | New-pull-request | Medium | Monitor upstream PR feedback | https://github.com/nikgrbn/finder-menu/pull/6 |
+| [ISSUE-005](issues/ISSUE-005.md) | Terminal reset: operational deletion errors are reported as success | Submitted | Pull-Request-Implementation | New-pull-request | Low | Monitor upstream PR feedback | https://github.com/nikgrbn/finder-menu/pull/7 |
+| [ISSUE-006](issues/ISSUE-006.md) | Build: independent Swift compilers run sequentially | Submitted | Pull-Request-Implementation | New-pull-request | Medium | Monitor upstream PR feedback | https://github.com/nikgrbn/finder-menu/pull/8 |
+| [ISSUE-007](issues/ISSUE-007.md) | Icon generator: identical pixel sizes render and encode repeatedly | Submitted | Pull-Request-Implementation | New-pull-request | Low | Monitor upstream PR feedback | https://github.com/nikgrbn/finder-menu/pull/9 |
 
 ## Archived-Findings
 

@@ -1,9 +1,9 @@
 # ISSUE-004 — Parent navigation: case-insensitive comparison matches distinct directories
 
-State: PR-Ready
+State: Submitted
 Authorized-Work: Pull-Request-Implementation
 Publication-Target: New-pull-request
-External-Reference: Not published.
+External-Reference: https://github.com/nikgrbn/finder-menu/pull/6
 Contribution-Priority: Medium
 Root-Cause-Confidence: High
 Finding-Category: Correctness
@@ -60,9 +60,9 @@ None; publication explicitly discloses the live Finder verification limitation.
 
 ## Next-Action
 
-Summary: Submit scoped upstream PR
-Action: Submit the exact recorded draft to `nikgrbn/finder-menu` with the native comparison and Finder gap disclosed.
-Done-When: The upstream PR URL is recorded in this file and the index.
+Summary: Monitor upstream PR feedback
+Action: Review maintainer feedback on https://github.com/nikgrbn/finder-menu/pull/6.
+Done-When: Feedback is addressed or an evidence-backed merge or closure disposition is recorded.
 
 ## Pull-Request-Implementation
 
